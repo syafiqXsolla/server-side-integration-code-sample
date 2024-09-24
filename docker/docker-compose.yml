@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  xsolla_example:
+    container_name: xsolla_example
+    build:
+      context: build
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+    stop_grace_period: 0s
+    volumes:
+      - ../:/app/xsolla-example
+      - ./build/extra-php.ini:/usr/local/etc/php/conf.d/extra-php.ini
+      - ./build/ngrok.yml:/root/.config/ngrok/ngrok.yml
+    environment:
+      PHP_IDE_CONFIG: serverName=xsolla-example
+      NGROK_AUTHTOKEN: ${NGROK_AUTH_TOKEN}

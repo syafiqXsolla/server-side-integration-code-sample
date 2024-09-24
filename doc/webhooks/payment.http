@@ -1,0 +1,24 @@
+POST https://4548-2001-f40-950-f12-21d3-3619-13d0-4b3d.ngrok-free.app/webhook HTTP/1.1
+User-Agent: XsollaAgent
+Accept: application/json
+Authorization: Signature 8e90a7ce16c3015333a20278fe060d3d8ac74da1
+Accept-Encoding: gzip
+Content-Type: application/json
+
+{
+  "notification_type": "payment",
+  "settings": {
+    "project_id": 12345,
+    "merchant_id": 54321
+  },
+  "payment": {
+    "amount": 100,
+    "currency": "USD"
+  },
+  "user": {
+    "email": "email@example.com",
+    "id": "user_2",
+    "name": "John Smith"
+  },
+  "external_payment_id": "1234"
+}
