@@ -1,4 +1,4 @@
-POST https://4548-2001-f40-950-f12-21d3-3619-13d0-4b3d.ngrok-free.app/webhook HTTP/1.1
+POST https://localhost:8080/webhook HTTP/1.1
 User-Agent: XsollaAgent
 Accept: application/json
 Authorization: Signature 8e90a7ce16c3015333a20278fe060d3d8ac74da1
