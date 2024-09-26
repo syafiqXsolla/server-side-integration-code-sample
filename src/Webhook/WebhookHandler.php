@@ -21,8 +21,7 @@ class WebhookHandler {
         $request = WebhookRequest::fromGlobals();
         $authenticator = new WebhookAuthenticator($secretKey);
         $authenticator->authenticateSignature($request);
-        $message = Message::fromArray($request->toArray());
-        return $message;
+        return Message::fromArray($request->toArray());
     }
 
     /**
@@ -41,7 +40,6 @@ class WebhookHandler {
                 if (is_array($user) && strpos($user['id'], 'test_xsolla') === 0) {
                     return ['{"error": {"code": "INVALID_USER","message": "Invalid user"}}', 400];
                 }
-
                 break;
 
             case NotificationTypeDictionary::PAYMENT:
@@ -50,7 +48,6 @@ class WebhookHandler {
                  * @var PaymentMessage $message
                  */
                 return ['{"status": "Payment processed successfully"}', 200];
-                break;
 
             case NotificationTypeDictionary::REFUND:
                 /**
